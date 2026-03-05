@@ -3,17 +3,47 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    box-sizing: border-box;
-  }
+  * { box-sizing: border-box; }
+
   body {
     @apply antialiased;
+    background: #060d06;
+    color: #d1fae5;
+  }
+
+  /* Pixel-crisp images everywhere */
+  img[src*="raw.githubusercontent"] {
+    image-rendering: pixelated;
+  }
+}
+
+@layer components {
+  .gb-card {
+    @apply bg-gb-card border border-gb-border rounded-xl;
+  }
+  .gb-btn {
+    @apply bg-gb-dim hover:bg-gb-green text-gb-text font-semibold rounded-lg transition-colors;
+  }
+  .gb-btn-primary {
+    @apply bg-gb-green hover:bg-gb-bright text-gb-bg font-bold rounded-lg transition-colors;
+  }
+  .gb-input {
+    @apply bg-gb-raised border border-gb-border rounded-lg px-3 py-2 text-gb-text placeholder-gb-dim
+           focus:outline-none focus:border-gb-green text-sm;
   }
 }
 
 @layer utilities {
   .scrollbar-thin {
     scrollbar-width: thin;
-    scrollbar-color: theme('colors.gray.700') transparent;
+    scrollbar-color: #1c3a1c transparent;
+  }
+  /* Tap flash for the counter cards */
+  @keyframes tap-flash {
+    0%   { background-color: rgba(34,197,94,0.25); }
+    100% { background-color: transparent; }
+  }
+  .tap-flash {
+    animation: tap-flash 0.25s ease-out;
   }
 }

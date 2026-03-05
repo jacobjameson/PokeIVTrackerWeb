@@ -1,7 +1,8 @@
 import { useState, useMemo } from 'react'
-import { POKEDEX_LIST, getSpecies, evYieldSummary } from '../lib/pokedex'
+import { POKEDEX_LIST, evYieldSummary } from '../lib/pokedex'
 import { STAT_KEYS, STAT_LABELS } from '../lib/gen3Calculator'
 import TypeBadge from '../components/TypeBadge'
+import PokemonSprite from '../components/PokemonSprite'
 import { BaseStatBar } from '../components/StatBar'
 
 export default function Pokedex() {
@@ -22,23 +23,17 @@ export default function Pokedex() {
   }, [search, evOnly])
 
   return (
-    <div className="flex h-[calc(100vh-7rem)]">
+    <div className="flex" style={{ height: 'calc(100vh - 7rem)' }}>
       {/* List pane */}
-      <div className={`flex flex-col ${selected ? 'hidden sm:flex' : 'flex'} w-full sm:w-64 border-r border-gray-800 bg-gray-950`}>
-        <div className="p-3 border-b border-gray-800 space-y-2">
-          <input
-            type="text"
-            placeholder="Search by name or #"
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-            className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
-          />
+      <div className={`flex flex-col ${selected ? 'hidden sm:flex' : 'flex'} w-full sm:w-64 border-r border-gb-border`}
+           style={{ background: '#060d06' }}>
+        <div className="p-3 border-b border-gb-border space-y-2">
+          <input type="text" placeholder="Name or #" value={search}
+            onChange={e => setSearch(e.target.value)} className="gb-input w-full" />
           <button
             onClick={() => setEvOnly(v => !v)}
-            className={`text-xs px-3 py-1 rounded-full font-medium border transition-colors ${
-              evOnly
-                ? 'bg-orange-900/40 border-orange-700 text-orange-300'
-                : 'border-gray-700 text-gray-400 hover:border-gray-600'
+            className={`text-xs px-3 py-1 rounded-full border transition-colors ${
+              evOnly ? 'border-yellow-600 text-yellow-400 bg-yellow-900/20' : 'border-gb-border text-gb-dim hover:border-gb-green'
             }`}
           >
             EV Yields Only
@@ -46,19 +41,17 @@ export default function Pokedex() {
         </div>
         <div className="flex-1 overflow-y-auto scrollbar-thin">
           {filtered.map(species => (
-            <button
-              key={species.id}
-              onClick={() => setSelected(species)}
-              className={`w-full flex items-center gap-2 px-3 py-2.5 text-left hover:bg-gray-800 border-b border-gray-900 transition-colors ${
-                selected?.id === species.id ? 'bg-gray-800' : ''
-              }`}
-            >
-              <span className="text-xs text-gray-500 font-mono w-9">
-                #{String(species.id).padStart(3,'0')}
-              </span>
-              <span className="text-sm text-white flex-1 truncate">{species.name}</span>
+            <button key={species.id} onClick={() => setSelected(species)}
+              className={`w-full flex items-center gap-2 px-3 py-2 text-left border-b border-gb-border/30 transition-colors ${
+                selected?.id === species.id ? 'bg-gb-raised' : 'hover:bg-gb-card'
+              }`}>
+              <PokemonSprite id={species.id} size={32} />
+              <div className="flex-1 min-w-0">
+                <div className="text-sm text-gb-text truncate">{species.name}</div>
+                <div className="text-xs text-gb-dim font-mono">#{String(species.id).padStart(3,'0')}</div>
+              </div>
               {evYieldSummary(species) !== 'None' && (
-                <span className="w-1.5 h-1.5 rounded-full bg-orange-500 shrink-0" title="Has EV yield" />
+                <div className="w-1.5 h-1.5 rounded-full bg-yellow-500 shrink-0" />
               )}
             </button>
           ))}
@@ -68,41 +61,33 @@ export default function Pokedex() {
       {/* Detail pane */}
       {selected ? (
         <div className="flex-1 overflow-y-auto p-4 space-y-4">
-          {/* Back button (mobile) */}
-          <button
-            className="sm:hidden text-sm text-blue-400 hover:text-blue-300 flex items-center gap-1"
-            onClick={() => setSelected(null)}
-          >
-            ← Back
-          </button>
+          <button className="sm:hidden text-sm text-gb-green hover:text-gb-bright flex items-center gap-1"
+            onClick={() => setSelected(null)}>← Back</button>
 
-          {/* Header */}
-          <div className="flex items-start justify-between">
+          <div className="flex items-center gap-4">
+            <div className="rounded-xl border border-gb-border p-2" style={{ background: '#122012' }}>
+              <PokemonSprite id={selected.id} size={96} />
+            </div>
             <div>
-              <div className="flex items-baseline gap-2">
-                <h2 className="text-xl font-bold text-white">{selected.name}</h2>
-                <span className="text-sm text-gray-500 font-mono">#{String(selected.id).padStart(3,'0')}</span>
-              </div>
-              <div className="flex gap-1.5 mt-1.5">
-                {selected.types.map(t => <TypeBadge key={t} type={t} />)}
-              </div>
+              <h2 className="text-xl font-bold text-gb-text">{selected.name}</h2>
+              <div className="text-xs text-gb-dim font-mono mb-2">#{String(selected.id).padStart(3,'0')}</div>
+              <div className="flex gap-1.5">{selected.types.map(t => <TypeBadge key={t} type={t} />)}</div>
             </div>
           </div>
 
-          {/* EV Yield */}
-          <div className="bg-gray-900 border border-gray-800 rounded-xl p-4">
-            <h3 className="text-sm font-semibold text-gray-300 mb-3">EV Yield</h3>
+          <div className="gb-card p-4">
+            <h3 className="text-sm font-semibold text-gb-muted mb-3">EV Yield</h3>
             {evYieldSummary(selected) === 'None' ? (
-              <p className="text-sm text-gray-500">No EV yield.</p>
+              <p className="text-sm text-gb-dim">No EV yield.</p>
             ) : (
               <div className="space-y-2">
                 {STAT_KEYS.map(key => {
                   const val = selected.evYield?.[key] ?? 0
-                  if (val === 0) return null
+                  if (!val) return null
                   return (
                     <div key={key} className="flex items-center justify-between">
-                      <span className="text-sm text-gray-300">{STAT_LABELS[key]}</span>
-                      <span className="text-sm font-bold text-orange-400 font-mono">+{val}</span>
+                      <span className="text-sm text-gb-muted">{STAT_LABELS[key]}</span>
+                      <span className="text-sm font-bold text-yellow-400 font-mono">+{val}</span>
                     </div>
                   )
                 })}
@@ -110,11 +95,10 @@ export default function Pokedex() {
             )}
           </div>
 
-          {/* Base stats */}
-          <div className="bg-gray-900 border border-gray-800 rounded-xl p-4">
+          <div className="gb-card p-4">
             <div className="flex items-center justify-between mb-3">
-              <h3 className="text-sm font-semibold text-gray-300">Base Stats</h3>
-              <span className="text-xs text-gray-500">
+              <h3 className="text-sm font-semibold text-gb-muted">Base Stats</h3>
+              <span className="text-xs text-gb-dim">
                 BST {STAT_KEYS.reduce((s, k) => s + (selected.baseStats[k] ?? 0), 0)}
               </span>
             </div>
@@ -126,8 +110,8 @@ export default function Pokedex() {
           </div>
         </div>
       ) : (
-        <div className="hidden sm:flex flex-1 items-center justify-center text-gray-600">
-          Select a Pokémon to see details
+        <div className="hidden sm:flex flex-1 items-center justify-center text-gb-dim text-sm">
+          Select a Pokémon
         </div>
       )}
     </div>
