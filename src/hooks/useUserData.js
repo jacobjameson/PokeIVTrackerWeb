@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from 'react'
 import {
   collection, doc, addDoc, updateDoc, deleteDoc,
-  onSnapshot, query, orderBy, serverTimestamp, setDoc, getDoc,
+  onSnapshot, query, orderBy, serverTimestamp, setDoc,
 } from 'firebase/firestore'
 import { db } from '../firebase'
 import { useAuth } from './useAuth'
@@ -24,19 +24,17 @@ export function useRoster() {
   useEffect(() => {
     if (!user) { setRoster([]); setLoading(false); return }
     const q = query(userCol(user.uid, 'pokemon'), orderBy('dateAdded', 'asc'))
-    const unsub = onSnapshot(q, snap => {
-      setRoster(snap.docs.map(d => ({ id: d.id, ...d.data() })))
-      setLoading(false)
-    })
+    const unsub = onSnapshot(
+      q,
+      snap => { setRoster(snap.docs.map(d => ({ id: d.id, ...d.data() }))); setLoading(false) },
+      err  => { console.error('useRoster:', err); setLoading(false) }
+    )
     return unsub
   }, [user?.uid])
 
   const addPokemon = useCallback((data) => {
     if (!user) return
-    return addDoc(userCol(user.uid, 'pokemon'), {
-      ...data,
-      dateAdded: serverTimestamp(),
-    })
+    return addDoc(userCol(user.uid, 'pokemon'), { ...data, dateAdded: serverTimestamp() })
   }, [user?.uid])
 
   const updatePokemon = useCallback((id, data) => {
@@ -62,10 +60,11 @@ export function useSessions() {
   useEffect(() => {
     if (!user) { setSessions([]); setLoading(false); return }
     const q = query(userCol(user.uid, 'sessions'), orderBy('date', 'desc'))
-    const unsub = onSnapshot(q, snap => {
-      setSessions(snap.docs.map(d => ({ id: d.id, ...d.data() })))
-      setLoading(false)
-    })
+    const unsub = onSnapshot(
+      q,
+      snap => { setSessions(snap.docs.map(d => ({ id: d.id, ...d.data() }))); setLoading(false) },
+      err  => { console.error('useSessions:', err); setLoading(false) }
+    )
     return unsub
   }, [user?.uid])
 
@@ -76,7 +75,7 @@ export function useSessions() {
       date: serverTimestamp(),
       isFinalized: false,
       partyPokemonIds: [],
-      enemies: [],  // [{speciesId, count}] stored inline
+      enemies: [],
     })
   }, [user?.uid])
 
@@ -102,15 +101,17 @@ export function useSettings() {
   useEffect(() => {
     if (!user) return
     const ref = userDoc(user.uid, 'settings', 'config')
-    return onSnapshot(ref, snap => {
-      if (snap.exists()) setSettings(snap.data())
-    })
+    const unsub = onSnapshot(
+      ref,
+      snap => { if (snap.exists()) setSettings(snap.data()) },
+      err  => console.error('useSettings:', err)
+    )
+    return unsub
   }, [user?.uid])
 
   const updateSettings = useCallback((data) => {
     if (!user) return
-    const ref = userDoc(user.uid, 'settings', 'config')
-    return setDoc(ref, data, { merge: true })
+    return setDoc(userDoc(user.uid, 'settings', 'config'), data, { merge: true })
   }, [user?.uid])
 
   return { settings, updateSettings }
