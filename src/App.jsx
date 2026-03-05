@@ -8,6 +8,7 @@ import EVSession from './pages/EVSession'
 import SessionDetail from './pages/SessionDetail'
 import Pokedex from './pages/Pokedex'
 import Settings from './pages/Settings'
+import RouteMap from './pages/RouteMap'
 
 function ProtectedRoute({ children }) {
   const { user } = useAuth()
@@ -32,6 +33,7 @@ function AppRoutes() {
         <Route path="sessions" element={<EVSession />} />
         <Route path="sessions/:id" element={<SessionDetail />} />
         <Route path="pokedex" element={<Pokedex />} />
+        <Route path="map" element={<RouteMap />} />
         <Route path="settings" element={<Settings />} />
       </Route>
     </Routes>
