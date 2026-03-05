@@ -4,6 +4,7 @@ import { STAT_KEYS, STAT_LABELS } from '../lib/gen3Calculator'
 import TypeBadge from '../components/TypeBadge'
 import PokemonSprite from '../components/PokemonSprite'
 import { BaseStatBar } from '../components/StatBar'
+import CLASSIC_SETS from '../data/classic_sets.json'
 
 export default function Pokedex() {
   const [search, setSearch] = useState('')
@@ -107,6 +108,52 @@ export default function Pokedex() {
                 <BaseStatBar key={key} label={STAT_LABELS[key]} value={selected.baseStats[key] ?? 0} />
               ))}
             </div>
+          </div>
+
+          {/* Classic Sets */}
+          <div className="gb-card p-4">
+            <div className="flex items-center gap-2 mb-3">
+              <h3 className="text-sm font-semibold text-gb-muted">Classic Sets</h3>
+              <span className="text-xs px-2 py-0.5 rounded-full border border-gb-border text-gb-dim">
+                competitive EV spreads
+              </span>
+            </div>
+            {(CLASSIC_SETS[String(selected.id)] ?? []).length === 0 ? (
+              <div className="rounded-xl border border-dashed border-gb-border/60 px-4 py-4 text-center">
+                <p className="text-xs text-gb-dim">No classic sets for this Pokémon.</p>
+                <p className="text-xs text-gb-dim/50 mt-0.5">Sets are available for fully-evolved, commonly used Pokémon.</p>
+              </div>
+            ) : (
+              <div className="space-y-3">
+                {(CLASSIC_SETS[String(selected.id)] ?? []).map((set, i) => (
+                  <div key={i} className="rounded-xl border p-3 space-y-2"
+                       style={{ background: '#0a160a', borderColor: '#1c3a1c' }}>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="text-sm font-semibold text-gb-text">{set.label}</span>
+                      <span className="text-xs px-1.5 py-0.5 rounded border border-gb-border text-gb-muted">
+                        {set.nature}
+                      </span>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {STAT_KEYS.filter(k => (set.evs[k] ?? 0) > 0).map(k => (
+                        <span key={k} className="text-xs px-2 py-0.5 rounded-full border border-gb-border text-yellow-400">
+                          {set.evs[k]} {STAT_LABELS[k]}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {set.moves.map(m => (
+                        <span key={m} className="text-xs px-2 py-0.5 rounded-full"
+                              style={{ background: '#122012', color: '#86efac' }}>
+                          {m}
+                        </span>
+                      ))}
+                    </div>
+                    <p className="text-xs text-gb-dim italic">{set.note}</p>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       ) : (
