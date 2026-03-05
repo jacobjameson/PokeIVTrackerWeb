@@ -1,0 +1,198 @@
+{
+  "3":  [
+    { "label": "Calm Mind Sweeper", "nature": "Modest", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Sleep Powder", "Razor Leaf", "Synthesis", "Leech Seed"], "note": "Sleep something, set up, sweep." },
+    { "label": "Defensive", "nature": "Bold", "evs": { "hp": 252, "def": 120, "spDef": 136 }, "moves": ["Leech Seed", "Synthesis", "Razor Leaf", "Sleep Powder"], "note": "Stall with Leech Seed + Synthesis." }
+  ],
+  "6":  [
+    { "label": "Dragon Dance Sweeper", "nature": "Adamant", "evs": { "atk": 252, "spd": 252, "hp": 6 }, "moves": ["Dragon Dance", "Flamethrower", "Rock Slide", "Earthquake"], "note": "Classic DD set. Rock Slide for Flying coverage." },
+    { "label": "Special Sweeper", "nature": "Timid", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Flamethrower", "Air Slash", "Dragon Claw", "Overheat"], "note": "Timid outspeeds more threats than Modest." }
+  ],
+  "9":  [
+    { "label": "Bulky Water", "nature": "Bold", "evs": { "hp": 252, "def": 252, "spDef": 6 }, "moves": ["Surf", "Ice Beam", "Rapid Spin", "Toxic"], "note": "Reliable Rapid Spin user, hard to shift." },
+    { "label": "Rain Dance Sweeper", "nature": "Modest", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Surf", "Ice Beam", "Rain Dance", "Earthquake"], "note": "Rain-boosted Surf hits very hard." }
+  ],
+  "26": [
+    { "label": "Special Attacker", "nature": "Timid", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Thunderbolt", "Thunder Wave", "Surf", "Brick Break"], "note": "Outclassed by Jolteon but workable in-game." }
+  ],
+  "28": [
+    { "label": "Sand Rush Sweeper", "nature": "Adamant", "evs": { "atk": 252, "spd": 252, "hp": 6 }, "moves": ["Swords Dance", "Slash", "Rock Slide", "Earthquake"], "note": "Swords Dance then sweep." }
+  ],
+  "36": [
+    { "label": "Calm Mind Tank", "nature": "Bold", "evs": { "hp": 252, "def": 252, "spDef": 6 }, "moves": ["Calm Mind", "Ice Beam", "Thunderbolt", "Softboiled"], "note": "Very bulky with natural Fairy bulk. Calm Mind to +6 and sweep." },
+    { "label": "Wish Support", "nature": "Calm", "evs": { "hp": 252, "spDef": 252, "def": 6 }, "moves": ["Wish", "Protect", "Encore", "Seismic Toss"], "note": "Pass Wishes to teammates." }
+  ],
+  "45": [
+    { "label": "Sunny Day Sweeper", "nature": "Modest", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Sunny Day", "Solar Beam", "Petal Dance", "Sleep Powder"], "note": "Sleep + Sunny Day for instant Solar Beam." }
+  ],
+  "51": [
+    { "label": "Choice Band Trapper", "nature": "Jolly", "evs": { "atk": 252, "spd": 252, "hp": 6 }, "moves": ["Earthquake", "Rock Slide", "Slash", "Shadow Ball"], "note": "Arena Trap + high Speed makes this a dangerous revenge killer." }
+  ],
+  "59": [
+    { "label": "Physical Sweeper", "nature": "Adamant", "evs": { "atk": 252, "spd": 252, "hp": 6 }, "moves": ["Flamethrower", "Extreme Speed", "Iron Tail", "Crunch"], "note": "Intimidate + Extreme Speed is great for priority." },
+    { "label": "Mixed Attacker", "nature": "Hasty", "evs": { "atk": 130, "spAtk": 126, "spd": 252 }, "moves": ["Flamethrower", "Extreme Speed", "Crunch", "Iron Tail"], "note": "Mixed spread to hit both physical and special." }
+  ],
+  "62": [
+    { "label": "Belly Drum Sweeper", "nature": "Adamant", "evs": { "atk": 252, "spd": 252, "hp": 6 }, "moves": ["Belly Drum", "Hypnosis", "Surf", "Brick Break"], "note": "Sleep the foe, Belly Drum, sweep." }
+  ],
+  "65": [
+    { "label": "Classic Sweeper", "nature": "Timid", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Psychic", "Fire Punch", "Ice Punch", "Recover"], "note": "Fastest special attacker in Gen 3 without priority. Recover keeps it healthy." },
+    { "label": "Calm Mind", "nature": "Timid", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Calm Mind", "Psychic", "Ice Punch", "Recover"], "note": "Set up Calm Mind and become nearly unkillable on the special side." }
+  ],
+  "68": [
+    { "label": "Choice Band Physical", "nature": "Adamant", "evs": { "atk": 252, "spd": 252, "hp": 6 }, "moves": ["Cross Chop", "Rock Slide", "Earthquake", "Shadow Ball"], "note": "No Guard makes Cross Chop perfectly accurate." },
+    { "label": "Bulk Up", "nature": "Adamant", "evs": { "hp": 252, "atk": 252, "def": 6 }, "moves": ["Bulk Up", "Cross Chop", "Rock Slide", "Earthquake"], "note": "Bulk Up to +1 then sweep." }
+  ],
+  "71": [
+    { "label": "Sunny Day Sweeper", "nature": "Modest", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Sunny Day", "Solar Beam", "Sludge Bomb", "Sleep Powder"], "note": "Sleep Powder before setting up Sun." }
+  ],
+  "73": [
+    { "label": "Spiker Tank", "nature": "Calm", "evs": { "hp": 252, "spDef": 252, "def": 6 }, "moves": ["Spikes", "Surf", "Ice Beam", "Rapid Spin"], "note": "Sets Spikes and can spin them away for you too." }
+  ],
+  "76": [
+    { "label": "Exploding Tank", "nature": "Adamant", "evs": { "atk": 252, "hp": 152, "def": 106 }, "moves": ["Earthquake", "Rock Blast", "Explosion", "Brick Break"], "note": "High Attack Explosion is devastating. Leftovers for longevity." }
+  ],
+  "80": [
+    { "label": "Calm Mind Wall", "nature": "Bold", "evs": { "hp": 252, "def": 252, "spAtk": 6 }, "moves": ["Calm Mind", "Surf", "Ice Beam", "Amnesia"], "note": "Regenerator of its era. Incredibly bulky physically." },
+    { "label": "Special Wall", "nature": "Calm", "evs": { "hp": 252, "spDef": 252, "def": 6 }, "moves": ["Surf", "Ice Beam", "Toxic", "Slack Off"], "note": "Handles special attackers well." }
+  ],
+  "82": [
+    { "label": "Magnet Pull Trapper", "nature": "Modest", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Thunderbolt", "Thunder Wave", "Flash Cannon", "Hidden Power Ice"], "note": "Traps Steel types. Thunder Wave for speed control." }
+  ],
+  "85": [
+    { "label": "Choice Band", "nature": "Adamant", "evs": { "atk": 252, "spd": 252, "hp": 6 }, "moves": ["Drill Peck", "Return", "Steel Wing", "Quick Attack"], "note": "Early Bird + great Attack for in-game." }
+  ],
+  "89": [
+    { "label": "Sticky Hold Exploder", "nature": "Adamant", "evs": { "atk": 252, "hp": 252, "def": 6 }, "moves": ["Sludge Bomb", "Brick Break", "Shadow Ball", "Explosion"], "note": "Big physical stats + Explosion. Sticky Hold blocks Trick." }
+  ],
+  "91": [
+    { "label": "Spiker", "nature": "Bold", "evs": { "hp": 252, "def": 252, "spAtk": 6 }, "moves": ["Spikes", "Surf", "Ice Beam", "Explosion"], "note": "Best Spiker in Gen 3. Explosion if forced out." },
+    { "label": "Explosion Lead", "nature": "Adamant", "evs": { "atk": 252, "hp": 252, "def": 6 }, "moves": ["Spikes", "Surf", "Rock Blast", "Explosion"], "note": "Lead, set Spikes, then Explode on something." }
+  ],
+  "94": [
+    { "label": "SubPunch", "nature": "Hasty", "evs": { "atk": 252, "spd": 252, "spAtk": 6 }, "moves": ["Substitute", "Focus Punch", "Shadow Ball", "Ice Punch"], "note": "Classic SubPunch Gengar. Forces switches into a Substitute." },
+    { "label": "Special Sweeper", "nature": "Timid", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Shadow Ball", "Ice Punch", "Thunderbolt", "Will-O-Wisp"], "note": "Ghost immunity to Normal/Fighting. Very fast." }
+  ],
+  "103": [
+    { "label": "Sunny Day Sweeper", "nature": "Modest", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Sunny Day", "Solar Beam", "Psychic", "Sleep Powder"], "note": "Harvest + Sitrus Berry synergy. Sleep → Sun → sweep." },
+    { "label": "Trick Room Attacker", "nature": "Quiet", "evs": { "spAtk": 252, "hp": 252, "spDef": 6 }, "moves": ["Trick Room", "Psychic", "Solar Beam", "Explosion"], "note": "Lowest base Speed benefits massively from Trick Room." }
+  ],
+  "105": [
+    { "label": "Thick Club Sweeper", "nature": "Adamant", "evs": { "atk": 252, "spd": 252, "hp": 6 }, "moves": ["Bonemerang", "Rock Slide", "Swords Dance", "Fire Blast"], "note": "With Thick Club, Attack doubles to astronomical levels." }
+  ],
+  "106": [
+    { "label": "Choice Band", "nature": "Adamant", "evs": { "atk": 252, "spd": 252, "hp": 6 }, "moves": ["Hi Jump Kick", "Rock Slide", "Earthquake", "Mach Punch"], "note": "Limber prevents paralysis. Hi Jump Kick is its bread and butter." }
+  ],
+  "107": [
+    { "label": "Iron Fist Puncher", "nature": "Adamant", "evs": { "atk": 252, "spd": 252, "hp": 6 }, "moves": ["Ice Punch", "Fire Punch", "Thunder Punch", "Mach Punch"], "note": "Elemental punches with Iron Fist is great for coverage." }
+  ],
+  "110": [
+    { "label": "Defensive Wall", "nature": "Bold", "evs": { "hp": 252, "def": 252, "spAtk": 6 }, "moves": ["Will-O-Wisp", "Flamethrower", "Sludge Bomb", "Pain Split"], "note": "Immunity + Levitate means very few things can hit it. Pain Split for recovery." }
+  ],
+  "112": [
+    { "label": "Physical Tank", "nature": "Adamant", "evs": { "atk": 252, "hp": 152, "def": 106 }, "moves": ["Earthquake", "Rock Blast", "Megahorn", "Brick Break"], "note": "Massive physical stats. Evolves to Rhyperior with trade+item in later gens." }
+  ],
+  "113": [
+    { "label": "Wish Cleric", "nature": "Calm", "evs": { "hp": 252, "spDef": 252, "def": 6 }, "moves": ["Wish", "Softboiled", "Seismic Toss", "Thunder Wave"], "note": "Highest HP in the game. Pass Wishes, status everything." },
+    { "label": "Counter Lead", "nature": "Bold", "evs": { "hp": 252, "def": 252, "spDef": 6 }, "moves": ["Softboiled", "Seismic Toss", "Thunder Wave", "Counter"], "note": "Counter surprises physical attackers." }
+  ],
+  "115": [
+    { "label": "Choice Band", "nature": "Adamant", "evs": { "atk": 252, "spd": 252, "hp": 6 }, "moves": ["Return", "Earthquake", "Rock Slide", "Shadow Ball"], "note": "Early Bird lets it switch into sleep. Solid physical mono-attacker." }
+  ],
+  "121": [
+    { "label": "Classic Sweeper", "nature": "Timid", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Surf", "Ice Beam", "Thunderbolt", "Recover"], "note": "The quintessential Kanto water type. Natural Cure + Recover + perfect coverage." },
+    { "label": "Rapid Spin Support", "nature": "Timid", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Rapid Spin", "Surf", "Ice Beam", "Recover"], "note": "Best spinner in Gen 3. Natural Cure shrugs off status." }
+  ],
+  "122": [
+    { "label": "Nasty Plot Sweeper", "nature": "Timid", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Psychic", "Ice Beam", "Thunderbolt", "Nasty Plot"], "note": "Prankster isn't a thing yet but still very fast and hits hard." }
+  ],
+  "124": [
+    { "label": "Special Sweeper", "nature": "Timid", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Blizzard", "Psychic", "Ice Beam", "Lovely Kiss"], "note": "Lovely Kiss is a 75% accurate sleep move. Frail but hits hard." }
+  ],
+  "125": [
+    { "label": "Special Attacker", "nature": "Timid", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Thunderbolt", "Ice Punch", "Cross Chop", "Thunder Wave"], "note": "Great mixed stats. Thunder Wave for speed control." }
+  ],
+  "126": [
+    { "label": "Special Attacker", "nature": "Timid", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Flamethrower", "Fire Blast", "Thunderbolt", "Smokescreen"], "note": "Flame Body can burn on contact. Good speed tier." }
+  ],
+  "127": [
+    { "label": "Swords Dance Sweeper", "nature": "Adamant", "evs": { "atk": 252, "spd": 252, "hp": 6 }, "moves": ["Swords Dance", "Slash", "Rock Slide", "Brick Break"], "note": "Hyper Cutter prevents Intimidate drops. SD to +2 and sweep." }
+  ],
+  "128": [
+    { "label": "Choice Band", "nature": "Adamant", "evs": { "atk": 252, "spd": 252, "hp": 6 }, "moves": ["Return", "Earthquake", "Iron Tail", "Shadow Ball"], "note": "The Gen 1 king. Intimidation + high Attack. Pure Normal STAB hits most things." }
+  ],
+  "130": [
+    { "label": "Dragon Dance Sweeper", "nature": "Adamant", "evs": { "atk": 252, "spd": 252, "hp": 6 }, "moves": ["Dragon Dance", "Waterfall", "Earthquake", "Ice Beam"], "note": "Classic DDance Gyarados. +1 Attack and Speed makes it a monster." },
+    { "label": "Bulky Dragon Dance", "nature": "Adamant", "evs": { "hp": 252, "atk": 252, "spd": 6 }, "moves": ["Dragon Dance", "Waterfall", "Earthquake", "Thunder Wave"], "note": "Sacrifices Speed EVs for more bulk. Still sweeps at +1." }
+  ],
+  "131": [
+    { "label": "Calm Mind Tank", "nature": "Modest", "evs": { "hp": 252, "spAtk": 132, "spDef": 126 }, "moves": ["Calm Mind", "Surf", "Ice Beam", "Psychic"], "note": "Water Absorb heals from water moves. Huge HP pool." },
+    { "label": "Defensive Support", "nature": "Calm", "evs": { "hp": 252, "spDef": 252, "def": 6 }, "moves": ["Surf", "Ice Beam", "Thunder Wave", "Toxic"], "note": "Spreads status while taking hits. Water Absorb for extra longevity." }
+  ],
+  "134": [
+    { "label": "Wish Passer", "nature": "Calm", "evs": { "hp": 252, "spDef": 252, "def": 6 }, "moves": ["Wish", "Surf", "Ice Beam", "Protect"], "note": "Enormous HP makes Wishes very large. Protect to safely use your own Wish." },
+    { "label": "Baton Pass", "nature": "Calm", "evs": { "hp": 252, "spDef": 252, "def": 6 }, "moves": ["Baton Pass", "Wish", "Acid Armor", "Surf"], "note": "Pass Acid Armor boosts to a physical attacker." }
+  ],
+  "135": [
+    { "label": "Classic Sweeper", "nature": "Timid", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Thunderbolt", "Shadow Ball", "Hidden Power Ice", "Baton Pass"], "note": "Second fastest Eeveelution. Baton Pass to escape unfavorable matchups." },
+    { "label": "Baton Pass Chain", "nature": "Timid", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Baton Pass", "Agility", "Thunderbolt", "Substitute"], "note": "Pass an Agility boost to a slower, powerful attacker." }
+  ],
+  "136": [
+    { "label": "In-Game Physical", "nature": "Adamant", "evs": { "atk": 252, "spd": 252, "hp": 6 }, "moves": ["Fire Blast", "Return", "Shadow Ball", "Bite"], "note": "Flareon's Attack is excellent even if its movepool is shallow." }
+  ],
+  "137": [
+    { "label": "Download Mixed", "nature": "Modest", "evs": { "spAtk": 252, "hp": 252, "def": 6 }, "moves": ["Thunderbolt", "Ice Beam", "Recover", "Tri Attack"], "note": "Download can give +1 SpAtk. Recover for longevity." }
+  ],
+  "139": [
+    { "label": "Rain Dance Sweeper", "nature": "Modest", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Rain Dance", "Surf", "Ice Beam", "Ancientpower"], "note": "Swift Swim doubles Speed in Rain. Hit extremely hard." },
+    { "label": "Shell Smash (later gen)", "nature": "Timid", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Surf", "Ice Beam", "Ancientpower", "Rain Dance"], "note": "Gen 3 version without Shell Smash. Use Rain Dance instead." }
+  ],
+  "141": [
+    { "label": "Swords Dance Rain Sweeper", "nature": "Adamant", "evs": { "atk": 252, "spd": 252, "hp": 6 }, "moves": ["Swords Dance", "Waterfall", "Slash", "Rock Slide"], "note": "Swift Swim + Swords Dance under Rain is devastating." }
+  ],
+  "142": [
+    { "label": "Lead Sweeper", "nature": "Jolly", "evs": { "atk": 252, "spd": 252, "hp": 6 }, "moves": ["Rock Slide", "Earthquake", "Wing Attack", "Hyper Beam"], "note": "Pressure + very high Speed. Fastest non-legendary in Gen 3." }
+  ],
+  "143": [
+    { "label": "CurseLax", "nature": "Careful", "evs": { "hp": 252, "spDef": 252, "atk": 6 }, "moves": ["Curse", "Body Slam", "Earthquake", "Rest"], "note": "The quintessential Gen 1-3 tank. Curse to max, sweep everything." },
+    { "label": "Belly Drum Sweeper", "nature": "Adamant", "evs": { "atk": 252, "spd": 252, "hp": 6 }, "moves": ["Belly Drum", "Body Slam", "Earthquake", "Shadow Ball"], "note": "With berry restore, Belly Drum to max Attack. Risky but rewarding." }
+  ],
+  "144": [
+    { "label": "Calm Mind Sweeper", "nature": "Modest", "evs": { "spAtk": 252, "hp": 252, "spDef": 6 }, "moves": ["Calm Mind", "Ice Beam", "Blizzard", "Substitute"], "note": "Pressure wears down PP. Calm Mind turns it into a late-game sweeper." },
+    { "label": "Defensive Pivot", "nature": "Calm", "evs": { "hp": 252, "spDef": 252, "def": 6 }, "moves": ["Ice Beam", "Roost", "Toxic", "Hail"], "note": "Hail doesn't hurt it. Roost for recovery. Pressure + Toxic is annoying." }
+  ],
+  "145": [
+    { "label": "Defensive Thunder Wave", "nature": "Bold", "evs": { "hp": 252, "def": 252, "spAtk": 6 }, "moves": ["Thunderbolt", "Thunder Wave", "Roost", "Heat Wave"], "note": "Excellent mixed bulk. Thunder Wave cripples fast threats. Pressure chip." },
+    { "label": "Special Sweeper", "nature": "Timid", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Thunderbolt", "Thunder Wave", "Heat Wave", "Roost"], "note": "Faster Zapdos. ThunderWave + high Speed is still useful." }
+  ],
+  "146": [
+    { "label": "Sunny Day Sweeper", "nature": "Timid", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Sunny Day", "Fire Blast", "Flamethrower", "Hidden Power Grass"], "note": "Pressure + high Speed. Sunny Day boosts Fire Blast to terrifying levels." }
+  ],
+  "149": [
+    { "label": "Physical Sweeper", "nature": "Adamant", "evs": { "atk": 252, "spd": 252, "hp": 6 }, "moves": ["Earthquake", "Aerial Ace", "Dragon Claw", "Fire Blast"], "note": "Multiscale isn't in Gen 3, but still very powerful physically." },
+    { "label": "Mixed Attacker", "nature": "Mild", "evs": { "atk": 252, "spAtk": 252, "spd": 6 }, "moves": ["Draco Meteor", "Earthquake", "Fire Blast", "Outrage"], "note": "Mixed spread is hard to wall with one typing." }
+  ],
+  "150": [
+    { "label": "Calm Mind Sweeper", "nature": "Timid", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Calm Mind", "Psystrike", "Aura Sphere", "Ice Beam"], "note": "The definitive Gen 3 sweeper. Calm Mind to +6 and sweep the world." },
+    { "label": "Pressure Stall", "nature": "Calm", "evs": { "hp": 252, "spDef": 252, "def": 6 }, "moves": ["Calm Mind", "Recover", "Psystrike", "Safeguard"], "note": "Pressure depletes PP. Recover stalls forever. Nearly unbeatable." }
+  ],
+  "151": [
+    { "label": "Utility Support", "nature": "Jolly", "evs": { "hp": 252, "spd": 252, "def": 6 }, "moves": ["Stealth Rock", "Soft-Boiled", "Baton Pass", "Transform"], "note": "Mew can run almost any set. This utility set covers team support." },
+    { "label": "Swords Dance Sweeper", "nature": "Adamant", "evs": { "atk": 252, "spd": 252, "hp": 6 }, "moves": ["Swords Dance", "Earthquake", "Rock Slide", "Brick Break"], "note": "Mew's physical movepool is massive. Swords Dance turns it into a powerhouse." },
+    { "label": "Calm Mind Special", "nature": "Timid", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Calm Mind", "Psychic", "Ice Beam", "Thunderbolt"], "note": "Balanced stats means almost every Calm Mind set works." }
+  ],
+  "97": [
+    { "label": "Wish Support", "nature": "Calm", "evs": { "hp": 252, "spDef": 252, "def": 6 }, "moves": ["Wish", "Seismic Toss", "Thunder Wave", "Hypnosis"], "note": "High SpDef naturally. Hypnosis for sleep spreading, Wish for team support." }
+  ],
+  "99": [
+    { "label": "Swords Dance Sweeper", "nature": "Adamant", "evs": { "atk": 252, "spd": 252, "hp": 6 }, "moves": ["Swords Dance", "Crabhammer", "Rock Slide", "Brick Break"], "note": "Hyper Cutter prevents Attack drops. Very high Attack after SD." }
+  ],
+  "101": [
+    { "label": "Explosion Lead", "nature": "Timid", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Thunder Wave", "Thunderbolt", "Explosion", "Signal Beam"], "note": "Fastest Exploder in the game. Lead, Thunder Wave, then Explode." }
+  ],
+  "57": [
+    { "label": "Choice Band", "nature": "Adamant", "evs": { "atk": 252, "spd": 252, "hp": 6 }, "moves": ["Cross Chop", "Rock Slide", "Earthquake", "Shadow Ball"], "note": "Anger Point is a niche ability but Vital Spirit prevents sleep." }
+  ],
+  "55": [
+    { "label": "Calm Mind Sweeper", "nature": "Modest", "evs": { "spAtk": 252, "spd": 252, "hp": 6 }, "moves": ["Calm Mind", "Surf", "Ice Beam", "Amnesia"], "note": "Cloud Nine blocks weather. Calm Mind + good bulk makes it a late-game sweeper." }
+  ]
+}
