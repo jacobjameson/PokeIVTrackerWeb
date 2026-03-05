@@ -114,7 +114,7 @@ export default function PokemonDetail() {
         </div>
         <table className="w-full text-sm">
           <thead>
-            <tr className="text-xs text-gb-dim border-b border-gb-border">
+            <tr className="text-xs text-gb-muted border-b border-gb-border">
               <th className="text-left px-4 py-2 font-medium">Stat</th>
               <th className="text-right px-3 py-2 font-medium">Value</th>
               <th className="text-right px-3 py-2 font-medium">Base</th>

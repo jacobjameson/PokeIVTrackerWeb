@@ -9,7 +9,7 @@ function barColor(value, max) {
 export function BaseStatBar({ label, value }) {
   return (
     <div className="flex items-center gap-2">
-      <span className="text-xs text-gb-dim w-14 text-right">{label}</span>
+      <span className="text-xs text-gb-muted w-14 text-right">{label}</span>
       <div className="flex-1 rounded-full h-2.5" style={{ background: '#1c3a1c' }}>
         <div
           className={`h-2.5 rounded-full ${barColor(value, 255)}`}
@@ -25,23 +25,27 @@ export function BaseStatBar({ label, value }) {
 export function EVBar({ label, value, target }) {
   const pct = (value / 255) * 100
   const targetPct = target ? (Math.min(255, target) / 255) * 100 : null
-
   const met = target != null && value >= target
-  let color = met ? '#22c55e' : value >= 252 ? '#f97316' : value >= 128 ? '#3b82f6' : '#166534'
+
+  let fillColor
+  if (met) fillColor = '#22c55e'
+  else if (value >= 252) fillColor = '#f97316'
+  else if (value >= 128) fillColor = '#3b82f6'
+  else fillColor = '#2563eb'  // visible blue even for small values
 
   return (
     <div className="flex items-center gap-2">
-      <span className="text-xs text-gb-dim w-14 text-right">{label}</span>
-      <div className="flex-1 rounded-full h-2.5 relative" style={{ background: '#1c3a1c' }}>
-        {/* Target ghost marker */}
-        {targetPct != null && !met && (
-          <div className="absolute top-0 bottom-0 rounded-full opacity-25"
-               style={{ width: `${targetPct}%`, background: '#facc15' }} />
+      <span className="text-xs text-gb-muted w-14 text-right">{label}</span>
+      <div className="flex-1 rounded-full h-2.5 relative overflow-hidden" style={{ background: '#1c3a1c' }}>
+        {/* Target ghost bar (behind fill) */}
+        {targetPct != null && (
+          <div className="absolute inset-y-0 left-0 rounded-full"
+               style={{ width: `${targetPct}%`, background: met ? 'transparent' : 'rgba(250,204,21,0.2)' }} />
         )}
         {/* Current fill */}
         <div
-          className="h-2.5 rounded-full transition-all absolute top-0 left-0"
-          style={{ width: `${pct}%`, background: color }}
+          className="absolute inset-y-0 left-0 rounded-full transition-all"
+          style={{ width: `${pct}%`, background: fillColor }}
         />
       </div>
       <span className={`text-xs font-mono w-8 text-right ${value >= 252 ? 'text-yellow-400 font-bold' : 'text-gb-muted'}`}>
