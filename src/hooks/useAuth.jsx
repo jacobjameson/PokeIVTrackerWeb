@@ -1,38 +1,32 @@
-import { createContext, useContext, useEffect, useState } from 'react'
-import {
-  onAuthStateChanged,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  signInWithPopup,
-  signOut,
-  updateProfile,
-} from 'firebase/auth'
-import { auth, googleProvider } from '../firebase'
+import { createContext, useContext, useState } from 'react'
+
+const USERS = {
+  jacob:  { uid: 'jacob',  displayName: 'Jacob' },
+  dallas: { uid: 'dallas', displayName: 'Dallas' },
+}
 
 const AuthContext = createContext(null)
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(undefined) // undefined = loading
+  const [user, setUser] = useState(() => {
+    const saved = localStorage.getItem('pokeiv-user')
+    return saved ? USERS[saved] ?? null : null
+  })
 
-  useEffect(() => {
-    return onAuthStateChanged(auth, setUser)
-  }, [])
+  function selectUser(name) {
+    const u = USERS[name]
+    if (!u) return
+    localStorage.setItem('pokeiv-user', name)
+    setUser(u)
+  }
 
-  const loginEmail = (email, password) =>
-    signInWithEmailAndPassword(auth, email, password)
-
-  const registerEmail = (email, password, displayName) =>
-    createUserWithEmailAndPassword(auth, email, password).then(cred => {
-      if (displayName) updateProfile(cred.user, { displayName })
-      return cred
-    })
-
-  const loginGoogle = () => signInWithPopup(auth, googleProvider)
-
-  const logout = () => signOut(auth)
+  function logout() {
+    localStorage.removeItem('pokeiv-user')
+    setUser(null)
+  }
 
   return (
-    <AuthContext.Provider value={{ user, loginEmail, registerEmail, loginGoogle, logout }}>
+    <AuthContext.Provider value={{ user, selectUser, logout }}>
       {children}
     </AuthContext.Provider>
   )

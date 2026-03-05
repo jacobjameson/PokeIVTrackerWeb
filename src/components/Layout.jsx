@@ -21,13 +21,13 @@ export default function Layout() {
         </span>
         <div className="flex items-center gap-3">
           <span className="text-sm text-gray-400 hidden sm:block">
-            {user?.displayName || user?.email}
+            {user?.displayName}
           </span>
           <button
             onClick={logout}
             className="text-xs text-gray-400 hover:text-white px-2 py-1 rounded hover:bg-gray-800 transition-colors"
           >
-            Sign out
+            Switch
           </button>
         </div>
       </header>
