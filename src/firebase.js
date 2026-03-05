@@ -1,9 +1,10 @@
 import { initializeApp } from 'firebase/app'
-import { getFirestore } from 'firebase/firestore'
+import { getDatabase } from 'firebase/database'
 
 const firebaseConfig = {
   apiKey:            "AIzaSyCTNM3mGMJDb_FKGQxosGWHCiAKUYc3w1M",
   authDomain:        "guess-half-the-mean.firebaseapp.com",
+  databaseURL:       "https://guess-half-the-mean-default-rtdb.firebaseio.com",
   projectId:         "guess-half-the-mean",
   storageBucket:     "guess-half-the-mean.firebasestorage.app",
   messagingSenderId: "732091624132",
@@ -12,4 +13,4 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig)
 
-export const db = getFirestore(app)
+export const db = getDatabase(app)
