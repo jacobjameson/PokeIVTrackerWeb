@@ -609,67 +609,63 @@ export const KANTO_ROUTES = {
   },
 }
 
-// Node positions on the map (x%, y% from top-left of the SVG canvas).
-// x=0 is west, x=100 is east. y=0 is north, y=100 is south.
+// Node positions calibrated to plot-kanto-1.png (1344×960).
+// x%, y% are percentages of the image width/height from the top-left corner.
 export const MAP_NODES = [
-  // ── Far north ──────────────────────────────────────────────
-  { id: 'route24',        label: 'Route 24',       x: 57, y:  4, kind: 'route' },
-  { id: 'route25',        label: 'Route 25',       x: 70, y:  4, kind: 'route' },
+  // ── West spine: Pewter → Viridian → Pallet ─────────────────
+  { id: 'route2',          label: 'Route 2',         x: 14, y: 28, kind: 'route' },
+  { id: 'viridian_forest', label: 'Viridian Forest', x: 14, y: 22, kind: 'dungeon' },
+  { id: 'route1',          label: 'Route 1',         x: 14, y: 47, kind: 'route' },
 
-  // ── Cerulean area ──────────────────────────────────────────
-  { id: 'cerulean_cave',  label: 'Cerulean Cave',  x: 57, y: 12, kind: 'dungeon' },
+  // ── Victory Road / Route 22 ────────────────────────────────
+  { id: 'victory_road',    label: 'Victory Road',    x:  7, y: 22, kind: 'dungeon' },
+  { id: 'route22',         label: 'Route 22',        x:  7, y: 40, kind: 'route' },
 
-  // ── Northwest corridor (Pallet → Pewter) ───────────────────
-  { id: 'route4',         label: 'Route 4',        x: 50, y: 22, kind: 'route' },
-  { id: 'mt_moon',        label: 'Mt. Moon',       x: 38, y: 22, kind: 'dungeon' },
-  { id: 'route3',         label: 'Route 3',        x: 26, y: 22, kind: 'route' },
+  // ── Pewter → Cerulean top corridor ────────────────────────
+  { id: 'route3',          label: 'Route 3',         x: 34, y:  9, kind: 'route' },
+  { id: 'mt_moon',         label: 'Mt. Moon',        x: 44, y:  9, kind: 'dungeon' },
+  { id: 'route4',          label: 'Route 4',         x: 56, y:  9, kind: 'route' },
 
-  // ── Eastern cave chain ─────────────────────────────────────
-  { id: 'route9',         label: 'Route 9',        x: 68, y: 22, kind: 'route' },
-  { id: 'rock_tunnel',    label: 'Rock Tunnel',    x: 68, y: 30, kind: 'dungeon' },
-  { id: 'route10',        label: 'Route 10',       x: 68, y: 38, kind: 'route' },
-  { id: 'power_plant',    label: 'Power Plant',    x: 79, y: 38, kind: 'dungeon' },
+  // ── Cerulean north ────────────────────────────────────────
+  { id: 'cerulean_cave',   label: 'Cerulean Cave',   x: 58, y:  3, kind: 'dungeon' },
+  { id: 'route24',         label: 'Route 24',        x: 65, y:  3, kind: 'route' },
+  { id: 'route25',         label: 'Route 25',        x: 75, y:  3, kind: 'route' },
 
-  // ── Route 2 / Viridian Forest / Pewter ─────────────────────
-  { id: 'viridian_forest',label: 'Viridian Forest',x: 14, y: 35, kind: 'dungeon' },
-  { id: 'route2',         label: 'Route 2',        x: 14, y: 43, kind: 'route' },
+  // ── East cave chain ────────────────────────────────────────
+  { id: 'route9',          label: 'Route 9',         x: 75, y: 17, kind: 'route' },
+  { id: 'rock_tunnel',     label: 'Rock Tunnel',     x: 75, y: 24, kind: 'dungeon' },
+  { id: 'route10',         label: 'Route 10',        x: 75, y: 31, kind: 'route' },
+  { id: 'power_plant',     label: 'Power Plant',     x: 84, y: 29, kind: 'dungeon' },
 
   // ── Routes 5/6 (Cerulean → Vermilion) ─────────────────────
-  { id: 'route5',         label: 'Route 5',        x: 57, y: 30, kind: 'route' },
-  { id: 'route6',         label: 'Route 6',        x: 57, y: 44, kind: 'route' },
+  { id: 'route5',          label: 'Route 5',         x: 65, y: 22, kind: 'route' },
+  { id: 'route6',          label: 'Route 6',         x: 65, y: 41, kind: 'route' },
 
-  // ── East-west corridor (Celadon ↔ Lavender) ───────────────
-  { id: 'route7',         label: 'Route 7',        x: 43, y: 50, kind: 'route' },
-  { id: 'route8',         label: 'Route 8',        x: 64, y: 50, kind: 'route' },
-
-  // ── Lavender area ──────────────────────────────────────────
-  { id: 'route12',        label: 'Route 12',       x: 76, y: 57, kind: 'route' },
-  { id: 'route13',        label: 'Route 13',       x: 76, y: 64, kind: 'route' },
-  { id: 'route14',        label: 'Route 14',       x: 76, y: 70, kind: 'route' },
-  { id: 'route15',        label: 'Route 15',       x: 66, y: 75, kind: 'route' },
-
-  // ── Vermilion / Route 11 ───────────────────────────────────
-  { id: 'route11',        label: 'Route 11',       x: 68, y: 57, kind: 'route' },
+  // ── Central corridor (Celadon ↔ Saffron ↔ Lavender) ───────
+  { id: 'route7',          label: 'Route 7',         x: 44, y: 35, kind: 'route' },
+  { id: 'route8',          label: 'Route 8',         x: 67, y: 35, kind: 'route' },
 
   // ── Cycling Road ───────────────────────────────────────────
-  { id: 'route16',        label: 'Route 16',       x: 30, y: 55, kind: 'route' },
-  { id: 'route17',        label: 'Route 17',       x: 30, y: 63, kind: 'route' },
-  { id: 'route18',        label: 'Route 18',       x: 39, y: 70, kind: 'route' },
+  { id: 'route16',         label: 'Route 16',        x: 27, y: 42, kind: 'route' },
+  { id: 'route17',         label: 'Route 17',        x: 27, y: 51, kind: 'route' },
+  { id: 'route18',         label: 'Route 18',        x: 37, y: 58, kind: 'route' },
 
-  // ── Viridian / Route 1 / Route 22 ─────────────────────────
-  { id: 'route22',        label: 'Route 22',       x:  6, y: 60, kind: 'route' },
-  { id: 'victory_road',   label: 'Victory Road',   x:  6, y: 51, kind: 'dungeon' },
-  { id: 'route1',         label: 'Route 1',        x: 14, y: 68, kind: 'route' },
+  // ── East routes (Vermilion / Lavender south) ───────────────
+  { id: 'route11',         label: 'Route 11',        x: 75, y: 48, kind: 'route' },
+  { id: 'route12',         label: 'Route 12',        x: 81, y: 36, kind: 'route' },
+  { id: 'route13',         label: 'Route 13',        x: 81, y: 44, kind: 'route' },
+  { id: 'route14',         label: 'Route 14',        x: 81, y: 51, kind: 'route' },
+  { id: 'route15',         label: 'Route 15',        x: 71, y: 57, kind: 'route' },
 
   // ── Fuchsia / Safari ───────────────────────────────────────
-  { id: 'safari_zone',    label: 'Safari Zone',    x: 43, y: 78, kind: 'dungeon' },
+  { id: 'safari_zone',     label: 'Safari Zone',     x: 45, y: 57, kind: 'dungeon' },
 
-  // ── South ocean routes ─────────────────────────────────────
-  { id: 'route19',        label: 'Route 19',       x: 43, y: 85, kind: 'water' },
-  { id: 'route20',        label: 'Route 20',       x: 32, y: 90, kind: 'water' },
-  { id: 'route21',        label: 'Route 21',       x: 20, y: 85, kind: 'water' },
+  // ── South ocean ────────────────────────────────────────────
+  { id: 'route19',         label: 'Route 19',        x: 50, y: 67, kind: 'water' },
+  { id: 'seafoam_islands', label: 'Seafoam Islands', x: 38, y: 74, kind: 'dungeon' },
+  { id: 'route20',         label: 'Route 20',        x: 31, y: 71, kind: 'water' },
+  { id: 'route21',         label: 'Route 21',        x: 14, y: 65, kind: 'water' },
 
-  // ── Cinnabar / Seafoam ─────────────────────────────────────
-  { id: 'seafoam_islands',label: 'Seafoam Islands',x: 32, y: 84, kind: 'dungeon' },
-  { id: 'pokemon_mansion',label: 'Pokémon Mansion',x: 14, y: 91, kind: 'dungeon' },
+  // ── Cinnabar ───────────────────────────────────────────────
+  { id: 'pokemon_mansion', label: 'Pokémon Mansion', x: 14, y: 77, kind: 'dungeon' },
 ]

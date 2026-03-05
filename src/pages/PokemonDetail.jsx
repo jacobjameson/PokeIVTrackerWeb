@@ -206,10 +206,21 @@ export default function PokemonDetail() {
         </div>
       )}
 
-      {/* Classic Sets */}
-      {classicSets.length > 0 && (
-        <div className="gb-card p-4">
-          <h2 className="font-semibold text-gb-text mb-3">Classic Sets</h2>
+      {/* Classic Sets — always shown, explains itself when empty */}
+      <div className="gb-card p-4">
+        <div className="flex items-center gap-2 mb-3">
+          <h2 className="font-semibold text-gb-text">Classic Sets</h2>
+          <span className="text-xs px-2 py-0.5 rounded-full border border-gb-border text-gb-dim">
+            competitive EV spreads
+          </span>
+        </div>
+
+        {classicSets.length === 0 ? (
+          <div className="rounded-xl border border-dashed border-gb-border/60 px-4 py-5 text-center">
+            <p className="text-sm text-gb-dim">No classic sets for this Pokémon.</p>
+            <p className="text-xs text-gb-dim/60 mt-1">Sets are available for fully-evolved, commonly used Pokémon.</p>
+          </div>
+        ) : (
           <div className="space-y-3">
             {classicSets.map((set, i) => {
               const isActive = targetEvs &&
@@ -262,8 +273,8 @@ export default function PokemonDetail() {
               )
             })}
           </div>
-        </div>
-      )}
+        )}
+      </div>
 
       {/* Modals */}
       {showEdit && (

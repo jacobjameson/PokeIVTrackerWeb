@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { KANTO_ROUTES, MAP_NODES } from '../data/kanto_routes'
 import PokemonSprite from '../components/PokemonSprite'
+import kantoMapImg from '/kanto_map.png'
 
 // ── Color scheme for node kinds ─────────────────────────────────────────────
 const KIND_STYLE = {
@@ -155,47 +156,6 @@ function MapNode({ node, selected, onClick }) {
   )
 }
 
-// ── Kanto map SVG background lines ───────────────────────────────────────────
-// Simple lines connecting adjacent areas to give a map feel.
-const MAP_CONNECTIONS = [
-  ['route1',        'route22'],
-  ['route2',        'viridian_forest'],
-  ['viridian_forest','route3'],
-  ['route3',        'mt_moon'],
-  ['mt_moon',       'route4'],
-  ['route4',        'route5'],
-  ['route5',        'route6'],
-  ['route6',        'route11'],
-  ['route7',        'route8'],
-  ['route8',        'route12'],
-  ['route9',        'rock_tunnel'],
-  ['rock_tunnel',   'route10'],
-  ['route10',       'power_plant'],
-  ['route11',       'route12'],
-  ['route12',       'route13'],
-  ['route13',       'route14'],
-  ['route14',       'route15'],
-  ['route15',       'safari_zone'],
-  ['route16',       'route17'],
-  ['route17',       'route18'],
-  ['route18',       'safari_zone'],
-  ['safari_zone',   'route19'],
-  ['route19',       'route20'],
-  ['route20',       'seafoam_islands'],
-  ['route20',       'pokemon_mansion'],
-  ['pokemon_mansion','route21'],
-  ['route21',       'route1'],
-  ['route22',       'victory_road'],
-  ['route24',       'route25'],
-  ['route24',       'cerulean_cave'],
-  ['cerulean_cave', 'route9'],
-]
-
-function nodePos(id) {
-  const n = MAP_NODES.find(n => n.id === id)
-  return n ? { x: n.x, y: n.y } : null
-}
-
 // ── Main page ─────────────────────────────────────────────────────────────────
 export default function RouteMap() {
   const [selected, setSelected] = useState(null)
@@ -207,54 +167,44 @@ export default function RouteMap() {
   return (
     <div className="flex flex-col md:flex-row h-full" style={{ minHeight: 'calc(100vh - 7rem)' }}>
       {/* ── Map panel ─────────────────────────────────────────────────────── */}
-      <div className="relative flex-1 overflow-hidden" style={{ minHeight: 360, background: '#060d06' }}>
-        {/* Legend */}
-        <div className="absolute top-3 left-3 z-20 flex flex-col gap-1"
-             style={{ background: 'rgba(6,13,6,0.85)', border: '1px solid #1c3a1c', borderRadius: 8, padding: '6px 10px' }}>
-          {Object.entries(KIND_STYLE).map(([k, s]) => (
-            <div key={k} className="flex items-center gap-1.5">
-              <span className="rounded" style={{ width: 10, height: 10, background: s.border, border: `1px solid ${s.hover}`, display: 'inline-block' }} />
-              <span className="text-xs capitalize" style={{ color: s.text, fontSize: '0.55rem' }}>{k}</span>
-            </div>
-          ))}
-        </div>
+      {/* Outer wrapper fills available space; inner wrapper keeps map's 1344:960 (7:5) aspect ratio */}
+      <div className="relative flex-1 flex items-start justify-center overflow-auto"
+           style={{ background: '#060d06', minHeight: 360 }}>
+        <div className="relative w-full" style={{ maxWidth: 840, aspectRatio: '1344 / 960' }}>
+          {/* Map image */}
+          <img
+            src={kantoMapImg}
+            alt="Kanto map"
+            className="absolute inset-0 w-full h-full"
+            style={{ imageRendering: 'pixelated', objectFit: 'fill', userSelect: 'none' }}
+            draggable={false}
+          />
 
-        {/* Title */}
-        <div className="absolute top-3 right-3 z-20 font-pixel text-right"
-             style={{ color: '#22c55e', fontSize: '0.45rem', lineHeight: 2 }}>
-          KANTO<br />
-          <span style={{ color: '#166534', fontSize: '0.4rem' }}>FR / LG</span>
-        </div>
-
-        {/* SVG connection lines */}
-        <svg className="absolute inset-0 w-full h-full" style={{ pointerEvents: 'none' }}>
-          {MAP_CONNECTIONS.map(([a, b], i) => {
-            const pa = nodePos(a), pb = nodePos(b)
-            if (!pa || !pb) return null
-            return (
-              <line key={i}
-                x1={`${pa.x}%`} y1={`${pa.y}%`}
-                x2={`${pb.x}%`} y2={`${pb.y}%`}
-                stroke="#1c3a1c" strokeWidth="1" strokeDasharray="3 4"
-              />
-            )
-          })}
-        </svg>
-
-        {/* Map nodes */}
-        {MAP_NODES.map(node => (
-          <MapNode key={node.id} node={node} selected={selected} onClick={handleSelect} />
-        ))}
-
-        {/* Tap hint */}
-        {!selected && (
-          <div className="absolute bottom-4 left-0 right-0 flex justify-center pointer-events-none">
-            <span className="text-xs px-3 py-1.5 rounded-full"
-                  style={{ background: 'rgba(13,26,13,0.9)', color: '#166534', border: '1px solid #1c3a1c' }}>
-              Tap any route to see encounters
-            </span>
+          {/* Legend overlay */}
+          <div className="absolute top-2 left-2 z-20 flex flex-col gap-1"
+               style={{ background: 'rgba(0,0,0,0.7)', border: '1px solid #1c3a1c', borderRadius: 6, padding: '4px 8px' }}>
+            {Object.entries(KIND_STYLE).map(([k, s]) => (
+              <div key={k} className="flex items-center gap-1">
+                <span className="rounded" style={{ width: 8, height: 8, background: s.bg, border: `1px solid ${s.hover}`, display: 'inline-block', flexShrink: 0 }} />
+                <span className="capitalize" style={{ color: s.text, fontSize: '0.5rem' }}>{k}</span>
+              </div>
+            ))}
           </div>
-        )}
+
+          {/* Map nodes — positioned as % of the image dimensions */}
+          {MAP_NODES.map(node => (
+            <MapNode key={node.id} node={node} selected={selected} onClick={handleSelect} />
+          ))}
+
+          {/* Tap hint */}
+          {!selected && (
+            <div className="absolute bottom-3 left-0 right-0 flex justify-center pointer-events-none">
+              <span style={{ background: 'rgba(0,0,0,0.75)', color: '#6ee7b7', border: '1px solid #1c3a1c', borderRadius: 999, padding: '3px 10px', fontSize: '0.6rem' }}>
+                Tap any route to see encounters
+              </span>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* ── Encounter panel (side on desktop, bottom sheet on mobile) ─────── */}
