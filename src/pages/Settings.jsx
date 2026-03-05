@@ -2,7 +2,6 @@ import { useSettings } from '../hooks/useUserData'
 import { useAuth } from '../hooks/useAuth'
 import { useRoster, useSessions } from '../hooks/useUserData'
 import { useState } from 'react'
-import { STAT_LABELS } from '../lib/gen3Calculator'
 
 const MULTIPLIER_OPTIONS = [
   { value: 1, label: 'Normal', desc: 'No modifier' },
